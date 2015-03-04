@@ -14,6 +14,7 @@ SRC_URI += "file://002-add-linksprite-pcduino.diff \
 	file://004-add-olimex-a13-som.diff \
 	file://005-add-gmac-tx-delay-variant.patch \
 	file://006-add-lamobo-r1.patch \
+	file://uEnv.txt \
 "
 
 PE = "1"
