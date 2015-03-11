@@ -1,21 +1,8 @@
-###meta-bananapi
+###meta-lamobo-r1
 
-Un-Official OpenEmbedded layer for bananapi boards.
-
-Due to the linux sunxi did not merge the kernel and uboot changes made by Lemaker.
-
-So we make some changes on meta-sunxi and add this new layer to make OE works for bananapi.
-
-This layer depends on the additional layer:
-
-meta-sunxi: https://github.com/xleng/meta-sunxi
-
-meta-openembedded: git://git.openembedded.org/meta-openembedded
-
-Tested with core-image-minimal based on yocto 1.6
+Un-Official OpenEmbedded layer for the lamobo-r1 aka. bananapi router board.
 
 
-###Build minimal image
 
 The following steps has just been tested under ubuntu 12.04 and it may also works on others *nix like OS.
 
