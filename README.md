@@ -22,14 +22,9 @@ $tar xvjf poky-daisy-11.0.0.tar.bz2
 $cd poky-daisy-11.0.0
 
 
-####Get meta-sunxi 
-
-$git clone https://github.com/xleng/meta-sunxi.git
-
-
 ####Get meta-bananapi
 
-$git clone https://github.com/xleng/meta-bananapi.git
+$git clone https://github.com/pokymobo/meta-lamobo-r1.git
 
 
 ####Get meta-openembedded
@@ -57,8 +52,7 @@ BBLAYERS ?= " \\
 /home/john/opensource/yocto/poky-daisy-11.0.0/meta \\
 /home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto \\
 /home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto-bsp \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-sunxi \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-bananapi \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta-lamobo-r1 \\
 /home/john/opensource/yocto/poky-daisy-11.0.0/meta-openembedded/meta-oe \\
 "
 BBLAYERS_NON_REMOVABLE ?= " \\
@@ -71,7 +65,7 @@ the parent path of poky maybe different in your pc.
 
 And change the machine type to bananapi in ./conf/local.conf
 
-MACHINE ??= "bananapi"
+MACHINE ??= "lamobo-r1"
 
 
 ####Run compile command
@@ -79,6 +73,6 @@ $bitbake core-image-minimal
 
 This will cost a lot of time in your first compile, it will donwload the sources form internet and then compile the sources, so be patient with it.
 
-You will get a image file under './tmp/deploy/images/bananapi/core-image-minimal-bananapi.sunxi-sdimg'.
+You will get a image file under './tmp/deploy/images/bananapi/core-image-minimal-lamobo-r1.sunxi-sdimg'.
 
 Flash this image file with your tools to sd card to boot the system.
