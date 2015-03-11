@@ -1,8 +1,8 @@
 require recipes-kernel/linux/linux-yocto.inc
 
-DESCRIPTION = "Linux kernel for Allwinner a10/a20 processors"
+DESCRIPTION = "Linux kernel for the Lamobo-R1 board"
 
-COMPATIBLE_MACHINE = "(bananapi|cubieboard|cubieboard2|cubietruck|forfun-q88db|lamobo-r1|mele|meleg|olinuxino-a10|olinuxino-a10lime|olinuxino-a10s|olinuxino-a13|olinuxino-a13som|olinuxino-a20|olinuxino-a20lime|olinuxino-a20lime2|olinuxino-a20som)"
+COMPATIBLE_MACHINE = "lamobo-r1"
 
 LINUX_VERSION ?= "3.19.1"
 
