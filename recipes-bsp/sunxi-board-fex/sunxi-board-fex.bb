@@ -7,7 +7,7 @@ DEPENDS = "sunxi-tools-native"
 PV = "1.1+git${SRCPV}"
 PR = "r0"
 
-COMPATIBLE_MACHINE = "(bananapi|cubieboard|cubieboard2|cubietruck|forfun-q88db|mele|meleg|olinuxino-a10|olinuxino-a10lime|olinuxino-a10s|olinuxino-a13|olinuxino-a13som|olinuxino-a20|olinuxino-a20lime|olinuxino-a20lime2|olinuxino-a20som)"
+COMPATIBLE_MACHINE = "(bananapi|cubieboard|cubieboard2|cubietruck|forfun-q88db|lamobo-r1|mele|meleg|olinuxino-a10|olinuxino-a10lime|olinuxino-a10s|olinuxino-a13|olinuxino-a13som|olinuxino-a20|olinuxino-a20lime|olinuxino-a20lime2|olinuxino-a20som)"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
@@ -36,6 +36,7 @@ SUNXI_FEX_FILE_olinuxino-a20 = "sys_config/a20/a20-olinuxino_micro.fex"
 SUNXI_FEX_FILE_olinuxino-a20lime = "sys_config/a20/a20-olinuxino_lime.fex"
 SUNXI_FEX_FILE_olinuxino-a20lime2 = "sys_config/a20/a20-olinuxino_lime2.fex"
 SUNXI_FEX_FILE_olinuxino-a20som = "sys_config/a20/olimex_a20_som.fex"
+SUNXI_FEX_FILE_lamobo-r1 = "sys_config/a20/Bananapi.fex"
 
 SUNXI_FEX_BIN_IMAGE = "fex-${MACHINE}-${PV}-${PR}.bin"
 SUNXI_FEX_BIN_IMAGE_SYMLINK = "fex-${MACHINE}.bin"
