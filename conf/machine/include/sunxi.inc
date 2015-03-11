@@ -7,7 +7,7 @@ XSERVER = "xserver-xorg \
 
 PREFERRED_PROVIDER_virtual/kernel = "linux"
 PREFERRED_VERSION_linux-sunxi ?= "3.19.%"
-PREFERRED_VERSION_linux-libc-headers = "3.19.%"
+PREFERRED_VERSION_linux-libc-headers = "3.19"
 
 KERNEL_IMAGETYPE = "uImage"
 
