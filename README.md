@@ -36,7 +36,7 @@ $git clone -b daisy https://github.com/openembedded/meta-openembedded.git
 
 $source ./oe-init-build-env
 
-Add meta-sunxi, meta-bananapi, meta-oe layers to ./conf/bblayer.conf, and it wil be something like this:
+Add meta-lamobo-r1 and meta-oe layers to ./conf/bblayer.conf, and it will be something like this:
 
 $cat ./conf/bblayers.conf
 
