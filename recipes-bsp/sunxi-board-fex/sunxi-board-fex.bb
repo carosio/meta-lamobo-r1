@@ -16,7 +16,7 @@ SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
 SRCREV = "5ee1fa782073dae37e82c34da5de86a4fa31a977"
 
 S = "${WORKDIR}/git"
-SUNXI_FEX_FILE_lamobo-r1 = "sys_config/a20/BananaPi.fex"
+SUNXI_FEX_FILE_lamobo-r1 = "sys_config/a20/Bananapi.fex"
 
 SUNXI_FEX_BIN_IMAGE = "fex-${MACHINE}-${PV}-${PR}.bin"
 SUNXI_FEX_BIN_IMAGE_SYMLINK = "fex-${MACHINE}.bin"
