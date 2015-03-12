@@ -7,36 +7,16 @@ DEPENDS = "sunxi-tools-native"
 PV = "1.1+git${SRCPV}"
 PR = "r0"
 
-COMPATIBLE_MACHINE = "(bananapi|cubieboard|cubieboard2|cubietruck|forfun-q88db|lamobo-r1|mele|meleg|olinuxino-a10|olinuxino-a10lime|olinuxino-a10s|olinuxino-a13|olinuxino-a13som|olinuxino-a20|olinuxino-a20lime|olinuxino-a20lime2|olinuxino-a20som)"
+COMPATIBLE_MACHINE = "lamobo-r1"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = "git://github.com/LeMaker/sunxi-boards.git;protocol=git"
 # Increase PV with SRCREV change
-SRCREV = "843d202665a520217b9c021b3914cd64c7fc32ce"
-
-#SRC_URI += "file://0001-sunxi-Add-BananaPi-support.patch  \
-#            file://0002-modified-banana-Pi-fex-configuration.patch \
-#        "
+SRCREV = "5ee1fa782073dae37e82c34da5de86a4fa31a977"
 
 S = "${WORKDIR}/git"
-SUNXI_FEX_FILE_bananapi = "sys_config/a20/Bananapi.fex"
-SUNXI_FEX_FILE_cubieboard = "sys_config/a10/cubieboard.fex"
-SUNXI_FEX_FILE_cubieboard2 = "sys_config/a20/cubieboard2.fex"
-SUNXI_FEX_FILE_cubietruck = "sys_config/a20/cubietruck.fex"
-SUNXI_FEX_FILE_forfun-q88db = "sys_config/a13/forfun_q88db.fex"
-SUNXI_FEX_FILE_mele = "sys_config/a10/mele_a1000.fex"
-SUNXI_FEX_FILE_meleg = "sys_config/a10/mele_a1000g.fex"
-SUNXI_FEX_FILE_olinuxino-a10 = "sys_config/a10/a10-olinuxino-lime.fex"
-SUNXI_FEX_FILE_olinuxino-a10s = "sys_config/a10s/a10s-olinuxino-m.fex"
-SUNXI_FEX_FILE_olinuxino-a10lime = "sys_config/a10/a10-olinuxino-lime.fex"
-SUNXI_FEX_FILE_olinuxino-a13 = "sys_config/a13/a13-olinuxino.fex"
-SUNXI_FEX_FILE_olinuxino-a13som = "sys_config/a13/olimex_a13_som.fex"
-SUNXI_FEX_FILE_olinuxino-a20 = "sys_config/a20/a20-olinuxino_micro.fex"
-SUNXI_FEX_FILE_olinuxino-a20lime = "sys_config/a20/a20-olinuxino_lime.fex"
-SUNXI_FEX_FILE_olinuxino-a20lime2 = "sys_config/a20/a20-olinuxino_lime2.fex"
-SUNXI_FEX_FILE_olinuxino-a20som = "sys_config/a20/olimex_a20_som.fex"
-SUNXI_FEX_FILE_lamobo-r1 = "sys_config/a20/Bananapi.fex"
+SUNXI_FEX_FILE_lamobo-r1 = "sys_config/a20/BananaPi.fex"
 
 SUNXI_FEX_BIN_IMAGE = "fex-${MACHINE}-${PV}-${PR}.bin"
 SUNXI_FEX_BIN_IMAGE_SYMLINK = "fex-${MACHINE}.bin"
