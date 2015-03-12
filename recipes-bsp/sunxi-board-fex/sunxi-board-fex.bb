@@ -11,7 +11,7 @@ COMPATIBLE_MACHINE = "lamobo-r1"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI = "git://github.com/LeMaker/sunxi-boards.git;protocol=git"
+SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
 # Increase PV with SRCREV change
 SRCREV = "5ee1fa782073dae37e82c34da5de86a4fa31a977"
 
