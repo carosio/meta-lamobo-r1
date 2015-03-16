@@ -19,7 +19,7 @@ SRC_URI += "file://002-add-linksprite-pcduino.diff \
 PE = "1"
 
 PV = "v2015.01"
-SRCREV = "bb5691c9ce9880949c8d7871c4a37548e95d773e"
+SRCREV = "92fa7f53f1f3f03296f8ffb14bdf1baefab83368"
 
 S = "${WORKDIR}/git"
 
