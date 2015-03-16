@@ -10,11 +10,12 @@ PV = "${LINUX_VERSION}+git${SRCPV}"
 
 PR = "r1"
 
-SRCREV_pn-${PN} = "c0546fe54ef28e3bc98b061642e13ade5d8dabb2"
+SRCREV_pn-${PN} = "4b2fee21dce2ead623ffb03454b666a3f7fb9c90"
 
 MACHINE_KERNEL_PR_append = "a"
 
-SRC_URI = "git://github.com/pokymobo/linux-yocto-lamobo-r1.git;protocol=git \
+SRC_URI = "git://github.com/pokymobo/linux-yocto-lamobo-r1.git;branch=standard/lamobo-r1;protocol=git \
         file://defconfig \
         "
+
 S = "${WORKDIR}/git"
