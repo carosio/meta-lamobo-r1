@@ -65,7 +65,7 @@ the parent path of poky maybe different in your pc.
 
 And change the machine type to bananapi in ./conf/local.conf
 
-MACHINE ??= "lamobo-r1"
+MACHINE ??= "sun7i-a20-lamobo-r1"
 
 
 ####Run compile command

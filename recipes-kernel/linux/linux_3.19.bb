@@ -2,7 +2,7 @@ require recipes-kernel/linux/linux-yocto.inc
 
 DESCRIPTION = "Linux kernel for the Lamobo-R1 board"
 
-COMPATIBLE_MACHINE = "lamobo-r1"
+COMPATIBLE_MACHINE = "sun7i-a20-lamobo-r1"
 
 LINUX_VERSION ?= "3.19.1"
 
