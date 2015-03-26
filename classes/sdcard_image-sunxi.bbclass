@@ -17,7 +17,7 @@ inherit image_types
 IMAGE_TYPEDEP_sunxi-sdimg = "${SDIMG_ROOTFS_TYPE}"
 
 # Boot partition volume id
-BOOTDD_VOLUME_ID ?= "${MACHINE}"
+BOOTDD_VOLUME_ID ?= "$( echo ${MACHINE} | cut -d'-' -f3- )"
 
 # Boot partition size [in KiB]
 BOOT_SPACE ?= "20480"
@@ -86,7 +86,7 @@ IMAGE_CMD_sunxi-sdimg () {
 		dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 	fi
 
-	#write u-boot and spl at the beginint of sdcard in one shot
+	# Write u-boot and spl at the begining of sdcard in one shot
 	dd if=${DEPLOY_DIR_IMAGE}/u-boot-sunxi-with-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc
 
 }
