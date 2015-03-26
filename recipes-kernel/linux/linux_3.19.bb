@@ -13,6 +13,8 @@ PR = "r1"
 KBRANCH ?= "standard/base"
 KBRANCH_sun7i-a20-lamobo-r1 ?= "standard/lamobo-r1"
 
+KERNEL_DEFCONFIG_sun7i-a20-lamobo-r1 ?= "sunxi_defconfig"
+
 SRCREV_pn-${PN} = "5f7d7d169feef2c7c5d6f3ebbe13a9bfba2a0a32"
 
 MACHINE_KERNEL_PR_append = "a"
