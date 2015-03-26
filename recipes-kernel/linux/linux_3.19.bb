@@ -10,7 +10,7 @@ PV = "${LINUX_VERSION}+git${SRCPV}"
 
 PR = "r1"
 
-SRCREV_pn-${PN} = "4b2fee21dce2ead623ffb03454b666a3f7fb9c90"
+SRCREV_pn-${PN} = "129413de3c812ad763da0cc51ea48998e6f89a5a"
 
 MACHINE_KERNEL_PR_append = "a"
 
