@@ -6,25 +6,20 @@ COMPATIBLE_MACHINE = "sun7i-a20-lamobo-r1"
 
 LINUX_VERSION ?= "3.19.1"
 
+LOCALVERSION = "-sunxi"
+
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
 PR = "r1"
 
-KBRANCH ?= "standard/base"
-KBRANCH_sun7i-a20-lamobo-r1 ?= "standard/lamobo-r1"
+KBRANCH ?= "standard/lamobo-r1"
 
-KERNEL_DEFCONFIG_sun7i-a20-lamobo-r1 ?= "sunxi_defconfig"
+KERNEL_DEFCONFIG ?= "sunxi_defconfig"
 
 SRCREV_pn-${PN} = "5f7d7d169feef2c7c5d6f3ebbe13a9bfba2a0a32"
-
-MACHINE_KERNEL_PR_append = "a"
 
 SRC_URI = "git://github.com/pokymobo/linux-yocto-lamobo-r1.git;branch=standard/lamobo-r1;protocol=git \
         file://defconfig \
         "
 
 S = "${WORKDIR}/git"
-
-do_kernel_configme_prepend() {
-    install -m 0644 ${S}/arch/${ARCH}/configs/${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig || die "No default configuration for ${MACHINE} / ${KERNEL_DEFCONFIG} available."
-}
