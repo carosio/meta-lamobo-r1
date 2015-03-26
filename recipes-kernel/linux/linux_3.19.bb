@@ -24,3 +24,7 @@ SRC_URI = "git://github.com/pokymobo/linux-yocto-lamobo-r1.git;branch=standard/l
         "
 
 S = "${WORKDIR}/git"
+
+do_kernel_configme_prepend() {
+    install -m 0644 ${S}/arch/${ARCH}/configs/${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig || die "No default configuration for ${MACHINE} / ${KERNEL_DEFCONFIG} available."
+}
