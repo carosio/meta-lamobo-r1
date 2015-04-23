@@ -1,0 +1,94 @@
+Index: src/Makefile
+===================================================================
+--- src/Makefile	(revision 45572)
++++ src/Makefile	(working copy)
+@@ -8,5 +8,5 @@
+ %.o: %.c
+ 	$(CC) $(CFLAGS) -c -o $@ $^
+ 
+-swconfig: cli.o swlib.o uci.o
++swconfig: cli.o swlib.o
+ 	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
+Index: src/cli.c
+===================================================================
+--- src/cli.c	(revision 45572)
++++ src/cli.c	(working copy)
+@@ -23,7 +23,6 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <sys/socket.h>
+-#include <uci.h>
+ 
+ #include <linux/types.h>
+ #include <linux/netlink.h>
+@@ -38,7 +37,9 @@
+ 	CMD_NONE,
+ 	CMD_GET,
+ 	CMD_SET,
++#if 0
+ 	CMD_LOAD,
++#endif
+ 	CMD_HELP,
+ 	CMD_SHOW,
+ 	CMD_PORTMAP,
+@@ -173,6 +174,7 @@
+ 	exit(1);
+ }
+ 
++#if 0
+ static void
+ swconfig_load_uci(struct switch_dev *dev, const char *name)
+ {
+@@ -198,6 +200,7 @@
+ 	uci_free_context(ctx);
+ 	exit(ret);
+ }
++#endif
+ 
+ int main(int argc, char **argv)
+ {
+@@ -247,11 +250,13 @@
+ 		} else if (!strcmp(arg, "get") && i+1 < argc) {
+ 			cmd = CMD_GET;
+ 			ckey = argv[++i];
++#if 0
+ 		} else if (!strcmp(arg, "load") && i+1 < argc) {
+ 			if ((cport >= 0) || (cvlan >= 0))
+ 				print_usage();
+ 			cmd = CMD_LOAD;
+ 			ckey = argv[++i];
++#endif
+ 		} else if (!strcmp(arg, "portmap")) {
+ 			if (i + 1 < argc)
+ 				csegment = argv[++i];
+@@ -323,9 +328,11 @@
+ 		print_attr_val(a, &val);
+ 		putchar('\n');
+ 		break;
++#if 0
+ 	case CMD_LOAD:
+ 		swconfig_load_uci(dev, ckey);
+ 		break;
++#endif
+ 	case CMD_HELP:
+ 		list_attributes(dev);
+ 		break;
+Index: src/swlib.h
+===================================================================
+--- src/swlib.h	(revision 45572)
++++ src/swlib.h	(working copy)
+@@ -242,6 +242,7 @@
+ int swlib_get_attr(struct switch_dev *dev, struct switch_attr *attr,
+ 		struct switch_val *val);
+ 
++#if 0
+ /**
+  * swlib_apply_from_uci: set up the switch from a uci configuration
+  * @dev: switch device struct
+@@ -248,5 +249,6 @@
+  * @p: uci package which contains the desired global config
+  */
+ int swlib_apply_from_uci(struct switch_dev *dev, struct uci_package *p);
++#endif
+ 
+ #endif
