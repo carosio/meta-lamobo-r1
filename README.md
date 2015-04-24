@@ -13,23 +13,23 @@ $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \
      build-essential chrpath libsdl1.2-dev xterm
 
 
-####Get poky-daisy-11.0.0
+####Get poky-fido-13.0.0
 
-$wget http://downloads.yoctoproject.org/releases/yocto/yocto-1.6.1/poky-daisy-11.0.1.tar.bz2
+$wget http://downloads.yoctoproject.org/releases/yocto/yocto-1.8/poky-fido-13.0.0.tar.bz2
 
-$tar xvjf poky-daisy-11.0.0.tar.bz2
+$tar xvjf poky-fido-13.0.0.tar.bz2
 
-$cd poky-daisy-11.0.0
+$cd poky-fido-13.0.0
 
 
-####Get meta-bananapi
+####Get meta-lamobo-r1
 
 $git clone https://github.com/pokymobo/meta-lamobo-r1.git
 
 
 ####Get meta-openembedded
 
-$git clone -b daisy https://github.com/openembedded/meta-openembedded.git
+$git clone -b fido https://github.com/openembedded/meta-openembedded.git
 
 
 ####Set compile config
@@ -49,21 +49,21 @@ BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
 BBLAYERS ?= " \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto-bsp \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-lamobo-r1 \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-openembedded/meta-oe \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto-bsp \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-lamobo-r1 \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-oe \\
 "
 BBLAYERS_NON_REMOVABLE ?= " \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta \\
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto \\
 "
 
 the parent path of poky maybe different in your pc.
 
 
-And change the machine type to bananapi in ./conf/local.conf
+And change the machine type to sun7i-a20-lamobo-r1 in ./conf/local.conf
 
 MACHINE ??= "sun7i-a20-lamobo-r1"
 
@@ -73,6 +73,6 @@ $bitbake core-image-minimal
 
 This will cost a lot of time in your first compile, it will donwload the sources form internet and then compile the sources, so be patient with it.
 
-You will get a image file under './tmp/deploy/images/bananapi/core-image-minimal-lamobo-r1.sunxi-sdimg'.
+You will get a image file under './tmp/deploy/images/sun7i-a20-lamobo-r1/core-image-minimal-sun7i-a20-lamobo-r1.sunxi-sdimg'.
 
 Flash this image file with your tools to sd card to boot the system.
