@@ -22,6 +22,8 @@ PE = "1"
 PV = "v2015.01"
 SRCREV = "92fa7f53f1f3f03296f8ffb14bdf1baefab83368"
 
+UBOOT_ENV ?= "uEnv"
+
 S = "${WORKDIR}/git"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
