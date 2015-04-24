@@ -42,7 +42,7 @@ $ git clone -b fido https://github.com/openembedded/meta-openembedded.git
 $ source ./oe-init-build-env
 ```
 
-Add meta-lamobo-r1, meta-networking and meta-oe layers to ./conf/bblayer.conf, and it will be something like this:
+Add meta-lamobo-r1, meta-networking, meta-oe and meta-python layers to ./conf/bblayer.conf, and it will be something like this:
 
 ```shell
 $ cat ./conf/bblayers.conf
@@ -61,6 +61,7 @@ BBLAYERS ?= " \\
 /home/john/opensource/yocto/poky-fido-13.0.0/meta-lamobo-r1 \\
 /home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-networking \\
 /home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-oe \\
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-python \\
 "
 BBLAYERS_NON_REMOVABLE ?= " \\
 /home/john/opensource/yocto/poky-fido-13.0.0/meta \\
