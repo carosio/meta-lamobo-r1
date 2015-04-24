@@ -1,6 +1,6 @@
 ###meta-lamobo-r1
 
-Un-Official OpenEmbedded layer for the lamobo-r1 aka. bananapi router board.
+Un-Official OpenEmbedded layer for the lamobo-r1 aka. bananapi router board (BPi-R1).
 
 
 
