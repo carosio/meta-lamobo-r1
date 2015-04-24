@@ -54,18 +54,18 @@ LCONF_VERSION = "6"
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
-BBLAYERS ?= " \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto-bsp \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta-lamobo-r1 \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-networking \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-oe \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-python \\
+BBLAYERS ?= " \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto-bsp \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-lamobo-r1 \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-networking \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-oe \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-openembedded/meta-python \
 "
-BBLAYERS_NON_REMOVABLE ?= " \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta \\
-/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto \\
+BBLAYERS_NON_REMOVABLE ?= " \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta \
+/home/john/opensource/yocto/poky-fido-13.0.0/meta-yocto \
 "
 ```
 
@@ -88,3 +88,54 @@ This will cost a lot of time in your first compile, it will donwload the sources
 You will get a image file under `./tmp/deploy/images/sun7i-a20-lamobo-r1/core-image-minimal-sun7i-a20-lamobo-r1.sunxi-sdimg`
 
 Flash this image file with your tools to sd card to boot the system.
+
+####Configuring the on-board switch
+```shell
+# basic switch settings
+swconfig dev switch0 set reset_mib 1
+swconfig dev switch0 set reset 1
+swconfig dev switch0 set enable_vlan 1
+swconfig dev switch0 set enable_jumbo 1
+# setup vlans for ports, CPU is on port 8 and wants tagged frames
+# lan ports vlan 1-4
+# the switch chip ports map to the physical ports on the board:
+#     LAN      WAN
+# [ 4 0 1 2 ] [ 3 ]
+swconfig dev switch0 port 4 set pvid 1
+swconfig dev switch0 vlan 1 set ports "8t 4"
+swconfig dev switch0 port 0 set pvid 2
+swconfig dev switch0 vlan 2 set ports "8t 0"
+swconfig dev switch0 port 1 set pvid 3
+swconfig dev switch0 vlan 3 set ports "8t 1"
+swconfig dev switch0 port 2 set pvid 4
+swconfig dev switch0 vlan 4 set ports "8t 2"
+# wan port vlan 5
+swconfig dev switch0 port 3 set pvid 5
+swconfig dev switch0 vlan 5 set ports "8t 3"
+swconfig dev switch0 set apply 1
+
+# add vlan interface to eth0
+for v in $(seq 1 5); do
+vconfig add eth0 $v
+done
+
+```
+
+Don't forget edit your /etc/config/network accordingly!
+
+i.e. add eth0.1, eth0.2, eth0.3, ... interfaces there as well
+
+
+Also be aware that the VLAN interface link state is not linked to the physical port, you can query the link of each port via:
+```shell
+for v in $(seq 0 4); do
+swconfig dev switch0 port $v get link
+done
+```
+
+Per-port counters can be queried via:
+```shell
+for v in $(seq 0 4) 8; do
+swconfig dev switch0 port $v get mib
+done
+```
