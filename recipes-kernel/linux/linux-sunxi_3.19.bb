@@ -21,7 +21,7 @@ KBRANCH ?= "standard/lamobo-r1"
 
 KERNEL_DEFCONFIG ?= "sunxi_defconfig"
 
-SRCREV_pn-${PN} = "5f7d7d169feef2c7c5d6f3ebbe13a9bfba2a0a32"
+SRCREV_pn-${PN} = "87ee090823b555e98b799622b741d256505bf3c9"
 
 SRC_URI = "git://github.com/pokymobo/linux-yocto-lamobo-r1.git;branch=standard/lamobo-r1;protocol=git \
         file://defconfig \
