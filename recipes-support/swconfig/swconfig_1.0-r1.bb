@@ -8,6 +8,7 @@ SRC_URI = "svn://svn.openwrt.org/openwrt/trunk/package/network/config/swconfig;m
            file://no-uci.patch \
            file://use-stdbool.patch \
            file://libnl-link-fix.patch \
+           file://fix-swlib-includes.patch \
            file://LICENSE \
 "
 
@@ -18,7 +19,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/LICENSE;md5=94d55d512a9ba36caa9b7df079bae1
                     file://cli.c;beginline=7;endline=14;md5=a2c41decfb4813a128acfceb5553953e \
 "
 
-CFLAGS_append = " -I. -I${STAGING_INCDIR}/libnl3 -std=c99"
+CFLAGS_append = " -I. -I${STAGING_INCDIR}/libnl3 -std=gnu99"
 
 do_configure() {
 	mkdir -p "${S}/linux"
