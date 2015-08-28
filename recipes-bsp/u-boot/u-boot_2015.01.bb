@@ -22,10 +22,15 @@ PE = "1"
 PV = "v2015.01"
 SRCREV = "92fa7f53f1f3f03296f8ffb14bdf1baefab83368"
 
-UBOOT_ENV ?= "uEnv"
+UBOOT_ENV = "boot"
+UBOOT_ENV_SUFFIX = "scr"
 
 S = "${WORKDIR}/git"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SPL_BINARY="u-boot-sunxi-with-spl.bin"
+
+do_compile_append() {
+    ${S}/tools/mkimage -C none -A arm -T script -d ${WORKDIR}/uEnv.txt ${WORKDIR}/${UBOOT_ENV_BINARY}
+}
