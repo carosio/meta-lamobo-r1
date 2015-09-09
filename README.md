@@ -116,7 +116,7 @@ swconfig dev switch0 set apply 1
 
 # add vlan interface to eth0
 for v in $(seq 1 5); do
-vconfig add eth0 $v
+       ip link add link eth0 name eth0.${v} type vlan id ${v}
 done
 
 ```
