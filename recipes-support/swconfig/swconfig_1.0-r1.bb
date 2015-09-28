@@ -2,7 +2,7 @@ SUMMARY = "Tool for some on-board ethernet switches"
 HOMEPAGE = "http://www.openwrt.org"
 SECTION = "console/network"
 LICENSE = "GPLv2 & LGPLv2.1"
-DEPENDS = "libnl"
+DEPENDS = "libnl linux-sunxi"
 
 SRC_URI = "svn://svn.openwrt.org/openwrt/trunk/package/network/config/swconfig;module=src;rev=45570;protocol=svn \
            file://no-uci.patch \
