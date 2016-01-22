@@ -21,7 +21,7 @@ KBRANCH = "yocto/lamobo-r1"
 SRC_URI = "git://github.com/thz/linux;name=machine;branch=${KBRANCH}"
 SRC_URI += "git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-4.4;destsuffix=${KMETA}"
 
-SRCREV_machine = "4532b9aacfc1be016c65e99cae4432d12d22ab02"
+SRCREV_machine = "6bc75dd677bb0232532dc597cee91f4305efcb2b"
 
 SRC_URI += "file://defconfig"
 KERNEL_DEFCONFIG ?= "sunxi_defconfig"
