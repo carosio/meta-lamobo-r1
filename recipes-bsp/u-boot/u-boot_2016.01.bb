@@ -9,13 +9,12 @@ COMPATIBLE_MACHINE = "sun7i-a20-lamobo-r1"
 
 DEFAULT_PREFERENCE_lamobo-r1="1"
 
-SRC_URI += "file://006-add-lamobo-r1.patch"
 SRC_URI += "file://uEnv.txt"
 
 PE = "1"
 
-PV = "v2015.10"
-SRCREV = "5ec0003b19cbdf06ccd6941237cbc0d1c3468e2d"
+PV = "v2016.01"
+SRCREV = "fa85e826c16b9ce1ad302a57e9c4b24db0d8b930"
 
 UBOOT_ENV = "boot"
 UBOOT_ENV_SUFFIX = "scr"
