@@ -1,24 +1,27 @@
-Index: u-boot-2015.01/board/sunxi/Makefile
-===================================================================
---- u-boot-2015.01.orig/board/sunxi/Makefile
-+++ u-boot-2015.01/board/sunxi/Makefile
-@@ -23,6 +23,7 @@ obj-$(CONFIG_TARGET_AUXTEK_T004)	+= dram
- obj-$(CONFIG_TARGET_BA10_TV_BOX)	+= dram_sun4i_384_1024_iow8.o
- obj-$(CONFIG_TARGET_BANANAPI)		+= dram_bananapi.o
- obj-$(CONFIG_TARGET_BANANAPRO)		+= dram_bananapi.o
-+obj-$(CONFIG_TARGET_LAMOBO_R1)		+= dram_bananapi.o
- obj-$(CONFIG_TARGET_CUBIEBOARD)		+= dram_cubieboard.o
- obj-$(CONFIG_TARGET_CUBIEBOARD2)	+= dram_cubieboard2.o
- obj-$(CONFIG_TARGET_CUBIETRUCK)		+= dram_cubietruck.o
-Index: u-boot-2015.01/configs/Lamobo_R1_defconfig
-===================================================================
+commit 96bf1f683f110d66c5684e6939f936beef0b34e5
+Author: Tobias Hintze <thintze+git@tpip.net>
+Date:   Fri Jan 22 11:52:38 2016 +0100
+
+    add lamobo-r1 defconfig
+
+diff --git a/configs/Lamobo_R1_defconfig b/configs/Lamobo_R1_defconfig
+new file mode 100644
+index 0000000..7f06690
 --- /dev/null
-+++ u-boot-2015.01/configs/Lamobo_R1_defconfig
-@@ -0,0 +1,7 @@
++++ b/configs/Lamobo_R1_defconfig
+@@ -0,0 +1,14 @@
 +CONFIG_SPL=y
-+CONFIG_SYS_EXTRA_OPTIONS="AXP209_POWER,SUNXI_GMAC,SUNXI_GMAC_TX_DELAY_3,RGMII,MACPWR=SUNXI_GPH(23),AHCI,USB_EHCI"
++CONFIG_SYS_EXTRA_OPTIONS="AXP209_POWER,SUNXI_GMAC,RGMII,MACPWR=SUNXI_GPH(23),AHCI,USB_EHCI,SATAPWR=SUNXI_GPB(3)"
 +CONFIG_FDTFILE="sun7i-a20-lamobo-r1.dtb"
-++S:CONFIG_ARM=y
-++S:CONFIG_ARCH_SUNXI=y
-++S:CONFIG_MACH_SUN7I=y
-++S:CONFIG_TARGET_LAMOBO_R1=y
++CONFIG_DEFAULT_DEVICE_TREE="sun7i-a20-lamobo-r1"
++CONFIG_GMAC_TX_DELAY=4
++CONFIG_ARM=y
++CONFIG_ARCH_SUNXI=y
++CONFIG_MACH_SUN7I=y
++CONFIG_DRAM_CLK=432
++CONFIG_DRAM_ZQ=127
++CONFIG_DRAM_EMR1=4
++CONFIG_ETH_DESIGNWARE=y
++CONFIG_NETDEVICES=y
++CONFIG_NET=y
++# CONFIG_CMD_IMLS is not set

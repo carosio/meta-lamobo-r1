@@ -9,18 +9,13 @@ COMPATIBLE_MACHINE = "sun7i-a20-lamobo-r1"
 
 DEFAULT_PREFERENCE_lamobo-r1="1"
 
-SRC_URI += "file://002-add-linksprite-pcduino.diff \
-	file://003-add-lemaker-bananapro.diff \
-	file://004-add-olimex-a13-som.diff \
-	file://005-add-gmac-tx-delay-variant.patch \
-	file://006-add-lamobo-r1.patch \
-	file://uEnv.txt \
-"
+SRC_URI += "file://006-add-lamobo-r1.patch"
+SRC_URI += "file://uEnv.txt"
 
 PE = "1"
 
-PV = "v2015.01"
-SRCREV = "92fa7f53f1f3f03296f8ffb14bdf1baefab83368"
+PV = "v2015.10"
+SRCREV = "5ec0003b19cbdf06ccd6941237cbc0d1c3468e2d"
 
 UBOOT_ENV = "boot"
 UBOOT_ENV_SUFFIX = "scr"
