@@ -24,6 +24,12 @@ SRC_URI += "git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;b
 SRCREV_machine = "6bc75dd677bb0232532dc597cee91f4305efcb2b"
 
 SRC_URI += "file://defconfig"
+SRC_URI += "file://netfilter.cfg"
+
+do_patch_append() {
+	cat ${WORKDIR}/netfilter.cfg >> ${WORKDIR}/defconfig
+}
+
 KERNEL_DEFCONFIG ?= "sunxi_defconfig"
 
 # We need to pass it as param since kernel might support more then one
