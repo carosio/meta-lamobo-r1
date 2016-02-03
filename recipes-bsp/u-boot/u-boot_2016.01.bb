@@ -5,7 +5,7 @@ require recipes-bsp/u-boot/u-boot.inc
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-COMPATIBLE_MACHINE = "sun7i-a20-lamobo-r1"
+COMPATIBLE_MACHINE_sun7i-a20-lamobo-r1 = "sun7i-a20-lamobo-r1"
 
 DEFAULT_PREFERENCE_lamobo-r1="1"
 

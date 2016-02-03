@@ -1,0 +1,19 @@
+define KFEATURE_DESCRIPTION "Kernel Config for A20 lamobo specific setup"
+define KFEATURE_COMPATIBILITY 'board'
+
+kconf hardware sun7i-a20-lamobo-r1.cfg
+
+include features/b53.scc
+
+include features/profiling/profiling.scc
+include features/latencytop/latencytop.scc
+include cfg/tracing.scc
+
+include features/usb/ehci-hcd.scc
+include features/usb/uhci-hcd.scc
+include features/usb/ohci-hcd.scc
+include features/usb/xhci-hcd.scc
+
+patch dts-sun7i_add_BananaPiRouter.patch
+patch patches/drivers/0001-import-swconfig-from-OpenWRT-f3d203c42.patch
+patch patches/drivers/0002-import-Broadcom-bcm53xx-managed-switch-support-from-.patch

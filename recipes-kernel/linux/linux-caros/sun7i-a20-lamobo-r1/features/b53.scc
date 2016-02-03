@@ -1,0 +1,4 @@
+define KFEATURE_DESCRIPTION "B53 Network Driver"
+define KFEATURE_COMPATIBILITY board
+
+kconf hardware b53.cfg
