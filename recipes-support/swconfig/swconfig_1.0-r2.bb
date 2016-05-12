@@ -4,7 +4,7 @@ SECTION = "console/network"
 LICENSE = "GPLv2 & LGPLv2.1"
 DEPENDS = "libnl linux-sunxi"
 
-SRC_URI = "svn://svn.openwrt.org/openwrt/trunk/package/network/config/swconfig;module=src;rev=45570;protocol=svn \
+SRC_URI = "git://git.openwrt.org/openwrt.git \
            file://no-uci.patch \
            file://use-stdbool.patch \
            file://libnl-link-fix.patch \
@@ -13,6 +13,8 @@ SRC_URI = "svn://svn.openwrt.org/openwrt/trunk/package/network/config/swconfig;m
            file://swconfig-init \
            file://LICENSE \
 "
+
+SRCREV="41dd9ed699bc1c7bb537dd65d821f6f22bb466e3"
 
 S = "${WORKDIR}/src"
 
@@ -27,6 +29,10 @@ SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "swconfig.service"
 
 CFLAGS_append = " -I. -I${STAGING_INCDIR}/libnl3 -std=gnu99"
+
+do_move_src() {
+       mv ${WORKDIR}/git/package/network/config/swconfig/src ${WORKDIR}/.
+}
 
 do_configure() {
 	mkdir -p "${S}/linux"
@@ -45,3 +51,5 @@ do_install() {
 	install -m 0755 ${WORKDIR}/swconfig.service ${D}${sysconfdir}/systemd/system
 	install -m 0755 ${WORKDIR}/swconfig-init ${D}${sbindir}
 }
+
+addtask move_src after do_unpack before do_patch
