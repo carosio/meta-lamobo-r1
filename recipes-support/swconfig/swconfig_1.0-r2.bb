@@ -31,7 +31,8 @@ SYSTEMD_SERVICE_${PN} = "swconfig.service"
 CFLAGS_append = " -I. -I${STAGING_INCDIR}/libnl3 -std=gnu99"
 
 do_move_src() {
-       mv ${WORKDIR}/git/package/network/config/swconfig/src ${WORKDIR}/.
+       rm -rf ${WORKDIR}/src
+       cp -r ${WORKDIR}/git/package/network/config/swconfig/src ${WORKDIR}/.
 }
 
 do_configure() {
