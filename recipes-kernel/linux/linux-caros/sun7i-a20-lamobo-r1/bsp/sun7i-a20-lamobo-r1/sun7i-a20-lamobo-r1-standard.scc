@@ -2,4 +2,6 @@ define KMACHINE sun7i-a20-lamobo-r1
 define KTYPE standard
 define KARCH arm
 
+include ktypes/standard/standard.scc
+
 include sun7i-a20-lamobo-r1.scc
